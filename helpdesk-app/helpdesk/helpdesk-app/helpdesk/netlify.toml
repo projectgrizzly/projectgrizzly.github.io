@@ -1,19 +1,31 @@
 [build]
   publish = "."
 
+# Serve submit form at root
 [[redirects]]
   from = "/"
   to = "/submit.html"
   status = 200
+  force = true
 
+# Clean URL for submit
 [[redirects]]
   from = "/submit"
   to = "/submit.html"
   status = 200
+  force = true
 
+# Clean URL for admin dashboard
 [[redirects]]
   from = "/admin"
-  to = "/index.html"
+  to = "/admin.html"
+  status = 200
+  force = true
+
+# Catch-all — send unknown routes to submit form
+[[redirects]]
+  from = "/*"
+  to = "/submit.html"
   status = 200
 
 [[headers]]
